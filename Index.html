@@ -10,4 +10,114 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: radial-gradient(circle at top, #7b2ff7, #3a0ca3, #1b0036);
       color: #ffffff;
-      display: flex
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }/* Corazones flotando */
+.heart {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: rgba(255,255,255,0.6);
+  transform: rotate(45deg);
+  animation: float 10s linear infinite;
+}
+.heart::before, .heart::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+}
+.heart::before { left: -7px; }
+.heart::after { top: -7px; }
+
+@keyframes float {
+  0% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.card h1 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: #f3e8ff;
+}
+
+.card p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.bts {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  color: #e9d5ff;
+}
+
+.purple-heart {
+  font-size: 2rem;
+  margin-top: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Corazones -->
+  <script>
+    for (let i = 0; i < 25; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (6 + Math.random() * 6) + 's';
+      heart.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(heart);
+    }
+  </script>  <div class="card">
+    <h1>Feliz Cumpleaños 🎂</h1>
+    <p>
+      Feliz cumpleaños <strong>mi amor</strong>,<br />
+      mi <strong>niña hermosa</strong>,<br />
+      <strong>dueña de mi corazón</strong>.
+    </p>
+    <p>
+      Que hoy y siempre tu vida esté llena de sonrisas,
+      sueños cumplidos y amor infinito. 💖
+    </p>
+    <div class="purple-heart">💜</div>
+    <p class="bts">
+      Inspirado en BTS: amor propio, sueños y un corazón violeta eterno.
+    </p>
+    <footer>
+      Con todo mi amor ✨
+    </footer>
+  </div>
+</body>
+</html>
